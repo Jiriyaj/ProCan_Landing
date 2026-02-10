@@ -432,43 +432,43 @@
 
         /* Tablet and down: center hero content, hide the image column */
         @media (max-width: 968px){
-            .logo-section{ justify-content:center; }
+            /* Tablet should mimic mobile hero: left-aligned, clean stack */
+            .logo-section{ justify-content:flex-start; text-align:left; }
+            .hero-content{ width: min(520px, 100%); }
+            .cta-buttons{ justify-content:flex-start; flex-direction: column; align-items: stretch; gap: 12px; width: 100%; }
+            .btn{ width: 100%; text-align: center; }
+            .phone-cta{ justify-content:flex-start; }
+            .hero-image{ display:none; }
+        }
             .cta-buttons{ justify-content:center; }
             .hero-image{ display:none; }
         }
 
         /* Phones */
         @media (max-width: 600px){
-            /* Make hero reliably fill the visible phone screen.
-               100dvh fixes the “next section peeking through” issue on iOS.
-               (Falls back to 100vh where dvh isn't supported.) */
+            /* iPhone/mobile: keep desktop look, just fix stacking + spacing */
             .hero{
                 min-height: 100vh;
-                /* iOS Safari: “small viewport” + “dynamic viewport” units */
                 min-height: 100svh;
                 min-height: 100dvh;
-                /* Mobile should feel anchored, not vertically centered */
                 align-items: stretch;
             }
 
-            /* Respect iPhone safe areas (notch + home indicator) */
+            /* Safe areas (notch + home indicator) */
             .hero-container{
                 padding:
                   calc(env(safe-area-inset-top, 0px) + 18px)
                   18px
                   calc(env(safe-area-inset-bottom, 0px) + 18px);
-                display: flex;
-                align-items: stretch; /* allow content to use full hero height */
-                min-height: inherit;  /* inherit 100svh/100dvh from .hero */
-            }
-            .hero-content{
-                width: 100%;
-                flex: 1;
-                display: flex;
-                flex-direction: column;
+                min-height: inherit;
             }
 
-            /* Logo + title scale down (your current 56px + 0.18em was the main overflow culprit) */
+            /* Content width + rhythm */
+            .hero-content{
+                width: 100%;
+                max-width: 420px;
+            }
+
             .logo-section{
                 justify-content:flex-start;
                 gap: 12px;
@@ -489,23 +489,22 @@
                 margin-top: 6px;
             }
 
-            /* Hero copy */
+            /* Hero copy: tighter vertical spacing so it doesn't feel messy */
             .tagline{ font-size: 14px; letter-spacing: 0.10em; margin-bottom: 8px; }
-            .hero-description{ font-size: 16px; line-height: 1.55; margin-bottom: 12px; max-width: 34ch; }
-            .location{ font-size: 16px; margin-bottom: 12px; justify-content:flex-start; }
+            .hero-description{ font-size: 16px; line-height: 1.5; margin-bottom: 12px; max-width: 34ch; }
+            .location{ font-size: 16px; margin-bottom: 14px; justify-content:flex-start; }
             .location i{ font-size: 20px; }
 
-            /* CTA buttons: stack and become touch-friendly */
-            .cta-buttons{ flex-direction: column; gap: 12px; width: 100%; margin-top: auto; }
+            /* CTA stack: keep visible (no push-to-bottom) */
+            .cta-buttons{
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                width: 100%;
+                margin-top: 6px;
+            }
             .btn{ width: 100%; text-align: center; padding: 14px 18px; }
             .phone-cta{ justify-content:flex-start; font-size: 16px; margin-top: 10px; }
-
-            /* Hero panel: slightly tighter + a touch more opaque on phones */
-            .hero-panel{
-                padding: 24px 18px;
-                border-radius: 22px;
-                background: rgba(15,20,24,0.66);
-            }
 
             /* Sections: reduce vertical padding */
             .services, .contact{ padding: 74px 18px; }
