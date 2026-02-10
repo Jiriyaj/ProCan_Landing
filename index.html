@@ -54,6 +54,7 @@
 
 .hero{
   position:relative;
+  /* Default: desktop + most browsers */
   min-height:100vh;
   width:100%;
   display:flex;
@@ -439,18 +440,37 @@
 
         /* Phones */
         @media (max-width: 600px){
-            /* Prevent “100vh” issues on mobile browser chrome */
-            .hero{ min-height: 100svh; }
+            /* iPhone/modern mobile browsers:
+               Use dynamic viewport units so the hero truly fills the screen
+               (prevents the next section from peeking through). */
+            .hero{
+              min-height: 100vh;
+              height: 100vh;     /* fallback */
+              height: 100svh;    /* "small" viewport (iOS) */
+              height: 100dvh;    /* dynamic viewport (best) */
+              align-items: flex-start;
+            }
 
-            .hero-container{ padding: 74px 18px; }
-            .hero-content{ width: 100%; }
+            /* Respect iPhone safe areas + keep content pinned toward top */
+            .hero-container{
+              padding-top: calc(env(safe-area-inset-top) + 18px);
+              padding-right: calc(env(safe-area-inset-right) + 18px);
+              padding-bottom: 78px;
+              padding-left: calc(env(safe-area-inset-left) + 18px);
+            }
+            .hero-content{ width: 100%; position: relative; padding-top: 98px; }
 
             /* Logo + title scale down (your current 56px + 0.18em was the main overflow culprit) */
+            /* Pin brand to the top-left on iPhone */
             .logo-section{
-                justify-content:center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                justify-content:flex-start;
                 gap: 12px;
-                margin-bottom: 18px;
-                text-align:center;
+                margin-bottom: 0;
+                text-align:left;
             }
             .logo-badge{ width:64px; height:64px; border-radius:14px; }
             .logo-badge svg{ width:44px; height:44px; }
@@ -467,15 +487,15 @@
             }
 
             /* Hero copy */
-            .tagline{ font-size: 14px; letter-spacing: 0.10em; margin-bottom: 10px; }
+            .tagline{ font-size: 14px; letter-spacing: 0.10em; margin-bottom: 10px; text-align:left; }
             .hero-description{ font-size: 16px; line-height: 1.65; margin-bottom: 18px; }
-            .location{ font-size: 16px; margin-bottom: 18px; justify-content:center; }
+            .location{ font-size: 16px; margin-bottom: 18px; justify-content:flex-start; }
             .location i{ font-size: 20px; }
 
             /* CTA buttons: stack and become touch-friendly */
             .cta-buttons{ flex-direction: column; gap: 12px; width: 100%; }
             .btn{ width: 100%; text-align: center; padding: 14px 18px; }
-            .phone-cta{ justify-content:center; font-size: 16px; }
+            .phone-cta{ justify-content:flex-start; font-size: 16px; }
 
             /* Hero panel padding trims */
             .hero-panel{ padding: 26px 20px; border-radius: 22px; }
@@ -498,7 +518,13 @@
         /* Very small phones */
         @media (max-width: 380px){
             .logo-text h1{ font-size: 30px; letter-spacing: 0.08em; }
-            .hero-container{ padding: 64px 16px; }
+            .hero-container{
+              padding-top: calc(env(safe-area-inset-top) + 14px);
+              padding-right: calc(env(safe-area-inset-right) + 16px);
+              padding-bottom: 70px;
+              padding-left: calc(env(safe-area-inset-left) + 16px);
+            }
+            .hero-content{ padding-top: 90px; }
             .hero-panel{ padding: 22px 16px; }
         }
 
