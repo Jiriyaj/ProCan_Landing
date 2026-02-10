@@ -439,20 +439,18 @@
 
         /* Phones */
         @media (max-width: 600px){
-            /* Make hero reliably fill the visible phone screen.
-               100dvh fixes the “next section peeking through” issue on iOS.
-               (Falls back to 100vh where dvh isn't supported.) */
-            .hero{ min-height: 100vh; min-height: 100dvh; }
+            /* Prevent “100vh” issues on mobile browser chrome */
+            .hero{ min-height: 100svh; }
 
             .hero-container{ padding: 74px 18px; }
             .hero-content{ width: 100%; }
 
             /* Logo + title scale down (your current 56px + 0.18em was the main overflow culprit) */
             .logo-section{
-                justify-content:flex-start;
+                justify-content:center;
                 gap: 12px;
                 margin-bottom: 18px;
-                text-align:left;
+                text-align:center;
             }
             .logo-badge{ width:64px; height:64px; border-radius:14px; }
             .logo-badge svg{ width:44px; height:44px; }
@@ -471,13 +469,13 @@
             /* Hero copy */
             .tagline{ font-size: 14px; letter-spacing: 0.10em; margin-bottom: 10px; }
             .hero-description{ font-size: 16px; line-height: 1.65; margin-bottom: 18px; }
-            .location{ font-size: 16px; margin-bottom: 18px; justify-content:flex-start; }
+            .location{ font-size: 16px; margin-bottom: 18px; justify-content:center; }
             .location i{ font-size: 20px; }
 
             /* CTA buttons: stack and become touch-friendly */
             .cta-buttons{ flex-direction: column; gap: 12px; width: 100%; }
             .btn{ width: 100%; text-align: center; padding: 14px 18px; }
-            .phone-cta{ justify-content:flex-start; font-size: 16px; }
+            .phone-cta{ justify-content:center; font-size: 16px; }
 
             /* Hero panel padding trims */
             .hero-panel{ padding: 26px 20px; border-radius: 22px; }
