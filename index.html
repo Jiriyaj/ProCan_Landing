@@ -442,9 +442,24 @@
             /* Make hero reliably fill the visible phone screen.
                100dvh fixes the “next section peeking through” issue on iOS.
                (Falls back to 100vh where dvh isn't supported.) */
-            .hero{ min-height: 100vh; min-height: 100dvh; }
+            .hero{
+                min-height: 100vh;
+                /* iOS Safari: “small viewport” + “dynamic viewport” units */
+                min-height: 100svh;
+                min-height: 100dvh;
+                /* Mobile should feel anchored, not vertically centered */
+                align-items: stretch;
+            }
 
-            .hero-container{ padding: 74px 18px; }
+            /* Respect iPhone safe areas (notch + home indicator) */
+            .hero-container{
+                padding:
+                  calc(env(safe-area-inset-top, 0px) + 18px)
+                  18px
+                  calc(env(safe-area-inset-bottom, 0px) + 18px);
+                display: flex;
+                align-items: flex-start;
+            }
             .hero-content{ width: 100%; }
 
             /* Logo + title scale down (your current 56px + 0.18em was the main overflow culprit) */
@@ -479,8 +494,12 @@
             .btn{ width: 100%; text-align: center; padding: 14px 18px; }
             .phone-cta{ justify-content:flex-start; font-size: 16px; }
 
-            /* Hero panel padding trims */
-            .hero-panel{ padding: 26px 20px; border-radius: 22px; }
+            /* Hero panel: slightly tighter + a touch more opaque on phones */
+            .hero-panel{
+                padding: 24px 18px;
+                border-radius: 22px;
+                background: rgba(15,20,24,0.66);
+            }
 
             /* Sections: reduce vertical padding */
             .services, .contact{ padding: 74px 18px; }
