@@ -458,15 +458,21 @@
                   18px
                   calc(env(safe-area-inset-bottom, 0px) + 18px);
                 display: flex;
-                align-items: flex-start;
+                align-items: stretch; /* allow content to use full hero height */
+                min-height: inherit;  /* inherit 100svh/100dvh from .hero */
             }
-            .hero-content{ width: 100%; }
+            .hero-content{
+                width: 100%;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
 
             /* Logo + title scale down (your current 56px + 0.18em was the main overflow culprit) */
             .logo-section{
                 justify-content:flex-start;
                 gap: 12px;
-                margin-bottom: 18px;
+                margin-bottom: 14px;
                 text-align:left;
             }
             .logo-badge{ width:64px; height:64px; border-radius:14px; }
@@ -484,15 +490,15 @@
             }
 
             /* Hero copy */
-            .tagline{ font-size: 14px; letter-spacing: 0.10em; margin-bottom: 10px; }
-            .hero-description{ font-size: 16px; line-height: 1.65; margin-bottom: 18px; }
-            .location{ font-size: 16px; margin-bottom: 18px; justify-content:flex-start; }
+            .tagline{ font-size: 14px; letter-spacing: 0.10em; margin-bottom: 8px; }
+            .hero-description{ font-size: 16px; line-height: 1.55; margin-bottom: 12px; max-width: 34ch; }
+            .location{ font-size: 16px; margin-bottom: 12px; justify-content:flex-start; }
             .location i{ font-size: 20px; }
 
             /* CTA buttons: stack and become touch-friendly */
-            .cta-buttons{ flex-direction: column; gap: 12px; width: 100%; }
+            .cta-buttons{ flex-direction: column; gap: 12px; width: 100%; margin-top: auto; }
             .btn{ width: 100%; text-align: center; padding: 14px 18px; }
-            .phone-cta{ justify-content:flex-start; font-size: 16px; }
+            .phone-cta{ justify-content:flex-start; font-size: 16px; margin-top: 10px; }
 
             /* Hero panel: slightly tighter + a touch more opaque on phones */
             .hero-panel{
