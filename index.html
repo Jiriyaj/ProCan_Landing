@@ -138,34 +138,364 @@
         .logo-badge .fill{ fill: var(--accent2); }
 
         .logo-text h1{
-    font-size: clamp(26px, 8vw, 34px);
-    letter-spacing: 0.06em;
-    line-height: 1.05;
-  }
-  .logo-text .sanitation{
-    font-size: 14px;
-    letter-spacing: 0.22em;
-  }
-
-  .tagline{ font-size: 13px; margin-bottom: 6px; line-height: 1.2; }
-  .hero-description{ font-size: 14.5px; line-height: 1.45; margin-bottom: 10px; max-width: 38ch; }
-  .location{ font-size: 14.5px; margin-bottom: 12px; }
-
-  /* Sections: reduce vertical padding */
-  .services, .contact{ padding: 74px 18px; }
-  .section-title, .contact .section-title{ font-size: 30px; margin-bottom: 14px; }
-  .section-subtitle, .contact .section-subtitle{ font-size: 16px; margin-bottom: 34px; }
-
-  .service-card{ padding: 26px 20px; }
-  .service-card h3{ font-size: 20px; }
-  .service-icon{ font-size: 42px; }
-  .contact-form{ padding: 26px 20px; border-radius: 18px; }
-
-  .footer{ padding: 24px 18px; }
+  font-family:'DXS Yagi Double','Orbitron','Rajdhani',Arial,sans-serif;
+  font-size:56px;
+  font-weight:400;
+  letter-spacing:0.18em;
+  margin:0;
+  text-transform:uppercase;
+  color:var(--pc-text);
+  line-height:1;
 }
 
-/* Very small phones */
 
+
+
+        .logo-text .sanitation{
+  margin-top: 8px;
+  font-size: 18px;
+  letter-spacing: 0.34em;
+  font-weight: 800;
+  color: rgba(231,234,237,0.86);
+  text-transform: uppercase;
+}
+
+
+
+
+        .tagline {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--pc-soft);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: var(--pc-muted);
+        }
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--pc-soft);
+        }
+        .location i {
+            color: var(--pc-accent);
+            font-size: 24px;
+        }
+
+        .cta-buttons{ display:flex; gap:18px; flex-wrap:wrap; }
+
+        .btn{
+            padding: 14px 34px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration:none;
+            border-radius: 999px;
+            transition: all .25s ease;
+            display:inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-primary {
+            background: var(--pc-accent-2);
+            color: #0F1418;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+        }
+        .btn-primary:hover {
+            background: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.45);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--pc-text);
+            border: 2px solid rgba(255,255,255,0.35);
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.08);
+            color: var(--pc-text);
+        }
+
+        .phone-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  margin-top:18px;
+  font-size:18px;
+  font-weight:600;
+  color:rgba(231,234,237,0.78);
+}
+
+.phone-cta i{
+  font-size:18px;
+  color:rgba(231,234,237,0.65);
+}
+
+/* Click-to-call label (no pill styling) */
+.phone-cta .phone-link{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  color:inherit;
+  text-decoration:none;
+  transition: transform .25s ease, color .25s ease;
+  will-change: transform;
+}
+
+/* Hover ONLY for non-touch devices */
+@media (hover: hover) and (pointer: fine){
+  .phone-cta .phone-link:hover{
+    transform: translateY(-2px);
+    color: rgba(255,255,255,0.95);
+  }
+}
+
+/* HERO IMAGE CARD */
+        .hero-image{
+            position:relative;
+        }
+        .hero-image .image-card{
+            border-radius: 22px;
+            overflow:hidden;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: var(--shadow);
+            background: rgba(255,255,255,0.04);
+        }
+        .hero-image img{
+            width:100%;
+            display:block;
+            object-fit: cover;
+            aspect-ratio: 16 / 10;
+            filter: contrast(1.02) saturate(.95);
+        }
+        .image-caption{
+            position:absolute;
+            left: 18px;
+            bottom: 18px;
+            background: rgba(15,20,25,0.65);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(233,237,242,0.9);
+            padding: 10px 12px;
+            border-radius: 14px;
+            font-size: 13px;
+            font-weight: 600;
+            backdrop-filter: blur(6px);
+        }
+
+        /* SERVICES */
+        .services {
+            padding: 100px 40px;
+            background: linear-gradient(180deg, var(--pc-charcoal) 0%, var(--pc-steel) 100%);
+        }
+        .services-container{ max-width: 1200px; margin:0 auto; }
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--pc-text);
+            text-transform: uppercase;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: var(--pc-muted);
+            margin-bottom: 60px;
+        }
+        .services-grid{
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 26px;
+        }
+        .service-card {
+            background: rgba(255,255,255,0.04);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+            transition: transform 0.3s ease;
+            border: 1px solid var(--pc-border);
+        }
+        .service-card:hover{
+            transform: translateY(-6px);
+            box-shadow: 0 18px 50px rgba(15,20,25,0.12);
+        }
+        .service-icon {
+            font-size: 50px;
+            color: var(--pc-accent);
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--pc-text);
+        }
+        .service-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--pc-muted);
+        }
+
+        /* CONTACT (dark, consistent, not bright) */
+        .contact {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, var(--pc-steel) 0%, var(--pc-charcoal) 100%);
+        }
+        .contact-container{ max-width: 860px; margin: 0 auto; }
+        .contact .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--pc-text);
+            text-transform: uppercase;
+        }
+        .contact .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: var(--pc-muted);
+            margin-bottom: 60px;
+        }
+
+        .contact-form {
+            background: rgba(15,20,24,0.65);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 18px 55px rgba(0,0,0,0.55);
+            border: 1px solid rgba(255,255,255,0.10);
+            backdrop-filter: blur(10px);
+        }
+        .form-group{ margin-bottom: 22px; }
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--pc-soft);
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease, background 0.3s ease;
+            background: rgba(255,255,255,0.06);
+            color: var(--pc-text);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.45);
+            background: rgba(255,255,255,0.08);
+        }
+        .form-group textarea{ resize: vertical; min-height: 150px; }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--pc-accent-2);
+            color: #0F1418;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .submit-btn:hover {
+            background: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #0B0F12;
+            color: var(--pc-soft);
+            padding: 30px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* Responsive (mobile-first tweaks only — keep desktop unchanged) */
+
+        /* Tablet and down: center hero content, hide the image column */
+        @media (max-width: 968px){
+            .logo-section{ justify-content:center; }
+            .cta-buttons{ justify-content:center; }
+            .hero-image{ display:none; }
+        }
+
+        /* Phones */
+        @media (max-width: 600px){
+            /* Prevent “100vh” issues on mobile browser chrome */
+            .hero{ min-height: 100svh; }
+
+            .hero-container{ padding: 74px 18px; }
+            .hero-content{ width: 100%; }
+
+            /* Logo + title scale down (your current 56px + 0.18em was the main overflow culprit) */
+            .logo-section{
+                justify-content:center;
+                gap: 12px;
+                margin-bottom: 18px;
+                text-align:center;
+            }
+            .logo-badge{ width:64px; height:64px; border-radius:14px; }
+            .logo-badge svg{ width:44px; height:44px; }
+
+            .logo-text h1{
+                font-size: clamp(32px, 10vw, 44px);
+                letter-spacing: 0.10em;
+                line-height: 1.05;
+            }
+            .logo-text .sanitation{
+                font-size: 14px;
+                letter-spacing: 0.22em;
+                margin-top: 6px;
+            }
+
+            /* Hero copy */
+            .tagline{ font-size: 14px; letter-spacing: 0.10em; margin-bottom: 10px; }
+            .hero-description{ font-size: 16px; line-height: 1.65; margin-bottom: 18px; }
+            .location{ font-size: 16px; margin-bottom: 18px; justify-content:center; }
+            .location i{ font-size: 20px; }
+
+            /* CTA buttons: stack and become touch-friendly */
+            .cta-buttons{ flex-direction: column; gap: 12px; width: 100%; }
+            .btn{ width: 100%; text-align: center; padding: 14px 18px; }
+            .phone-cta{ justify-content:center; font-size: 16px; }
+
+            /* Hero panel padding trims */
+            .hero-panel{ padding: 26px 20px; border-radius: 22px; }
+
+            /* Sections: reduce vertical padding */
+            .services, .contact{ padding: 74px 18px; }
+            .section-title, .contact .section-title{ font-size: 30px; margin-bottom: 14px; }
+            .section-subtitle, .contact .section-subtitle{ font-size: 16px; margin-bottom: 34px; }
+
+            /* Cards/forms */
+            .service-card{ padding: 26px 20px; }
+            .service-card h3{ font-size: 20px; }
+            .service-icon{ font-size: 42px; }
+            .contact-form{ padding: 26px 20px; border-radius: 18px; }
+
+            /* Footer */
+            .footer{ padding: 24px 18px; }
+        }
+
+        /* Very small phones */
         @media (max-width: 380px){
             .logo-text h1{ font-size: 30px; letter-spacing: 0.08em; }
             .hero-container{ padding: 64px 16px; }
