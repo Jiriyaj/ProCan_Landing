@@ -118,8 +118,8 @@
         .logo-section{
             display:flex;
             align-items:center;
-            gap:18px;
-            margin-bottom:28px;
+            gap:14px;
+            margin-bottom:24px;
         }
 
         /* Clean SVG logo container (no flyer crops) */
@@ -137,27 +137,37 @@
         .logo-badge .stroke{ stroke: var(--accent2); }
         .logo-badge .fill{ fill: var(--accent2); }
 
+        .logo-text{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:2px;
+}
+
         .logo-text h1{
   font-family:'DXS Yagi Double','Orbitron','Rajdhani',Arial,sans-serif;
   font-size:56px;
   font-weight:400;
-  letter-spacing:0.18em;
+  letter-spacing:0.14em;
   margin:0;
   text-transform:uppercase;
   color:var(--pc-text);
-  line-height:1;
+  line-height:0.96;
+  font-style: italic;
+  transform: skewX(-8deg);
+  transform-origin:left center;
 }
 
-
-
-
         .logo-text .sanitation{
-  margin-top: 8px;
+  margin-top: 0;
+  margin-left: 4px;
   font-size: 18px;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.20em;
   font-weight: 800;
   color: rgba(231,234,237,0.86);
   text-transform: uppercase;
+  line-height: 1;
+  font-style: italic;
 }
 
 
@@ -433,6 +443,8 @@
         /* Tablet and down: center hero content, hide the image column */
         @media (max-width: 968px){
             .logo-section{ justify-content:center; }
+            .logo-text{ align-items:center; }
+            .logo-text .sanitation{ margin-left: 0; }
             .cta-buttons{ justify-content:center; }
             .hero-image{ display:none; }
         }
@@ -440,36 +452,47 @@
         /* Phones */
         @media (max-width: 600px){
             /* Prevent “100vh” issues on mobile browser chrome */
-            .hero{ min-height: 100svh; }
+            .hero{ 
+                min-height: auto;
+                align-items:flex-start;
+                background-position: 68% center;
+            }
 
-            .hero-container{ padding: 74px 18px; }
+            .hero::before{
+                background:
+                  linear-gradient(180deg, rgba(15,20,24,0.72) 0%, rgba(15,20,24,0.58) 34%, rgba(15,20,24,0.34) 68%, rgba(15,20,24,0.18) 100%),
+                  radial-gradient(560px 420px at 50% 20%, rgba(15,20,24,0.30), rgba(15,20,24,0) 72%);
+            }
+
+            .hero-container{ padding: 90px 18px 52px; }
             .hero-content{ width: 100%; }
 
             /* Logo + title scale down (your current 56px + 0.18em was the main overflow culprit) */
             .logo-section{
                 justify-content:center;
-                gap: 12px;
-                margin-bottom: 18px;
+                gap: 10px;
+                margin-bottom: 14px;
                 text-align:center;
+                align-items:flex-start;
             }
             .logo-badge{ width:64px; height:64px; border-radius:14px; }
             .logo-badge svg{ width:44px; height:44px; }
 
             .logo-text h1{
-                font-size: clamp(32px, 10vw, 44px);
-                letter-spacing: 0.10em;
-                line-height: 1.05;
+                font-size: clamp(30px, 9vw, 40px);
+                letter-spacing: 0.08em;
+                line-height: 0.95;
             }
             .logo-text .sanitation{
-                font-size: 14px;
-                letter-spacing: 0.22em;
-                margin-top: 6px;
+                font-size: 13px;
+                letter-spacing: 0.16em;
+                margin-top: 0;
             }
 
             /* Hero copy */
             .tagline{ font-size: 14px; letter-spacing: 0.10em; margin-bottom: 10px; }
-            .hero-description{ font-size: 16px; line-height: 1.65; margin-bottom: 18px; }
-            .location{ font-size: 16px; margin-bottom: 18px; justify-content:center; }
+            .hero-description{ font-size: 16px; line-height: 1.55; margin-bottom: 16px; }
+            .location{ font-size: 16px; margin-bottom: 16px; justify-content:center; }
             .location i{ font-size: 20px; }
 
             /* CTA buttons: stack and become touch-friendly */
@@ -478,7 +501,7 @@
             .phone-cta{ justify-content:center; font-size: 16px; }
 
             /* Hero panel padding trims */
-            .hero-panel{ padding: 26px 20px; border-radius: 22px; }
+            .hero-panel{ padding: 22px 18px; border-radius: 22px; }
 
             /* Sections: reduce vertical padding */
             .services, .contact{ padding: 74px 18px; }
@@ -497,9 +520,9 @@
 
         /* Very small phones */
         @media (max-width: 380px){
-            .logo-text h1{ font-size: 30px; letter-spacing: 0.08em; }
-            .hero-container{ padding: 64px 16px; }
-            .hero-panel{ padding: 22px 16px; }
+            .logo-text h1{ font-size: 28px; letter-spacing: 0.06em; }
+            .hero-container{ padding: 82px 16px 44px; }
+            .hero-panel{ padding: 20px 15px; }
         }
 
     
@@ -521,12 +544,12 @@
 /* Mobile overrides for rules that appear below the earlier responsive block */
 @media (max-width: 600px){
   .brand-mark{ margin-right: 0; }
-  .brand-mark img{ width: 56px; }
-  .hero-panel{ padding: 26px 20px; border-radius: 22px; }
+  .brand-mark img{ width: 54px; }
+  .hero-panel{ padding: 22px 18px; border-radius: 22px; }
 }
 
 @media (max-width: 380px){
-  .hero-panel{ padding: 22px 16px; }
+  .hero-panel{ padding: 20px 15px; }
 }
 
 
