@@ -453,49 +453,56 @@
         @media (max-width: 600px){
             .hero{ 
                 min-height: 100svh;
-                align-items:center;
-                background-position: 64% center;
+                align-items:flex-start;
+                background-position: 62% center;
             }
 
             .hero::before{
                 background:
-                  linear-gradient(180deg, rgba(15,20,24,0.78) 0%, rgba(15,20,24,0.60) 36%, rgba(15,20,24,0.34) 72%, rgba(15,20,24,0.20) 100%),
-                  radial-gradient(520px 360px at 50% 18%, rgba(15,20,24,0.34), rgba(15,20,24,0) 72%);
+                  linear-gradient(180deg, rgba(15,20,24,0.80) 0%, rgba(15,20,24,0.62) 32%, rgba(15,20,24,0.34) 68%, rgba(15,20,24,0.18) 100%),
+                  radial-gradient(560px 380px at 22% 14%, rgba(15,20,24,0.42), rgba(15,20,24,0) 72%);
             }
 
-            .hero-container{ padding: 72px 20px 96px; }
-            .hero-content{ width: 100%; max-width: 100%; }
+            .hero-container{ padding: 72px 20px 104px; }
+            .hero-content{
+                width: 100%;
+                max-width: 100%;
+                min-height: calc(100svh - 176px);
+                display: flex;
+                flex-direction: column;
+            }
 
             .logo-section{
-                justify-content:center;
+                justify-content:flex-start;
                 gap: 12px;
-                margin-bottom: 18px;
-                text-align:center;
-                align-items:center;
+                margin-bottom: 22px;
+                text-align:left;
+                align-items:flex-start;
             }
+            .logo-text{ align-items:flex-start; }
             .logo-badge{ width:62px; height:62px; border-radius:14px; }
             .logo-badge svg{ width:42px; height:42px; }
 
             .logo-text h1{
                 font-size: clamp(24px, 8.2vw, 34px);
-                letter-spacing: 0.06em;
+                letter-spacing: 0.05em;
                 line-height: 0.94;
             }
             .logo-text .sanitation{
                 font-size: 11px;
                 letter-spacing: 0.18em;
-                margin-top: 2px;
+                margin-top: 4px;
                 margin-left: 2px;
             }
 
-            .tagline{ font-size: 13px; letter-spacing: 0.08em; margin-bottom: 10px; text-align:center; }
-            .hero-description{ font-size: 15px; line-height: 1.45; margin-bottom: 14px; text-align:left; }
-            .location{ font-size: 15px; margin-bottom: 18px; justify-content:center; }
+            .tagline{ font-size: 13px; letter-spacing: 0.08em; margin-bottom: 18px; text-align:left; line-height: 1.45; }
+            .hero-description{ font-size: 15px; line-height: 1.62; margin-bottom: 24px; text-align:left; max-width: 92%; }
+            .location{ font-size: 15px; margin-bottom: 28px; justify-content:flex-start; }
             .location i{ font-size: 18px; }
 
-            .cta-buttons{ flex-direction: column; gap: 12px; width: 100%; }
+            .cta-buttons{ flex-direction: column; gap: 12px; width: 100%; margin-top: auto; }
             .btn{ width: 100%; text-align: center; padding: 15px 18px; font-size: 15px; }
-            .phone-cta{ justify-content:flex-start; font-size: 15px; margin-top: 16px; }
+            .phone-cta{ justify-content:center; width:100%; text-align:center; font-size: 15px; margin-top: 24px; }
 
             .hero-trustbar{
                 bottom: 20px;
@@ -522,8 +529,10 @@
 
         /* Very small phones */
         @media (max-width: 380px){
-            .logo-text h1{ font-size: 28px; letter-spacing: 0.06em; }
-            .hero-container{ padding: 82px 16px 44px; }
+            .logo-text h1{ font-size: 28px; letter-spacing: 0.05em; }
+            .hero-container{ padding: 78px 16px 100px; }
+            .hero-content{ min-height: calc(100svh - 178px); }
+            .hero-description{ max-width: 100%; }
             .hero-panel{ padding: 20px 15px; }
         }
 
@@ -548,6 +557,7 @@
   .brand-mark{ margin-right: 0; }
   .brand-mark img{ width: 54px; }
   .hero-panel{ padding: 22px 18px; border-radius: 22px; }
+  .phone-cta .phone-link{ justify-content: center; }
 }
 
 @media (max-width: 380px){
