@@ -113,6 +113,10 @@
   width: min(760px, 100%);
 }
 
+.hero-copy{
+  display:block;
+}
+
         .hero-content{ color: var(--text); }
 
         .logo-section{
@@ -495,25 +499,32 @@
                 margin-top: 4px;
                 margin-left: 2px;
             }
+            .hero-copy{
+                display:flex;
+                flex-direction:column;
+                gap: 22px;
+                width: 100%;
+                max-width: 380px;
+                margin-top: 34px;
+            }
             .tagline{
                 font-size: 13px;
                 letter-spacing: 0.08em;
-                margin-top: 44px;
-                margin-bottom: 34px;
+                margin: 0;
                 text-align:left;
                 line-height: 1.42;
-                max-width: 360px;
+                max-width: 100%;
             }
             .hero-description{
                 font-size: 15px;
                 line-height: 1.72;
-                margin-bottom: 34px;
+                margin: 0;
                 text-align:left;
-                max-width: 360px;
+                max-width: 100%;
             }
             .location{
                 font-size: 15px;
-                margin-bottom: 0;
+                margin: 0;
                 justify-content:flex-start;
             }
             .location i{ font-size: 18px; }
@@ -552,6 +563,7 @@
             .logo-text h1{ font-size: 28px; letter-spacing: 0.05em; }
             .hero-container{ padding: 78px 16px 100px; }
             .hero-content{ min-height: calc(100svh - 178px); }
+            .hero-copy{ margin-top: 28px; gap: 18px; max-width: 100%; }
             .hero-description{ max-width: 100%; }
             .hero-panel{ padding: 20px 15px; }
         }
@@ -656,15 +668,17 @@ body.is-loaded .fall-in {
         </div>
       </div>
 
-      <div class="tagline fall-in d2">Commercial Waste Container Sanitation</div>
+      <div class="hero-copy">
+        <div class="tagline fall-in d2">Commercial Waste Container Sanitation</div>
 
-      <p class="hero-description fall-in d3">
-        Keep odors, bacteria, and compliance issues off your property with scheduled, professional sanitation—done right.
-      </p>
+        <p class="hero-description fall-in d3">
+          Keep odors, bacteria, and compliance issues off your property with scheduled, professional sanitation—done right.
+        </p>
 
-      <div class="location fall-in d4">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>Kansas City, Missouri</span>
+        <div class="location fall-in d4">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Kansas City, Missouri</span>
+        </div>
       </div>
 
       <div class="cta-buttons fall-in d5">
