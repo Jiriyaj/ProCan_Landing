@@ -482,10 +482,11 @@
                 margin-top: 6px;
             }
 
-            /* Fill the hero with the copy stack instead of leaving a dead zone */
+            /* Keep logo at the top, but let the copy sit lower just above the buttons */
             .hero-copy{
                 max-width: 330px;
-                margin-top: 42px;
+                margin-top: auto;
+                margin-bottom: 18px;
             }
             .tagline{
                 font-size: 14px;
@@ -507,18 +508,18 @@
             }
             .location i{ font-size: 20px; }
 
-            /* Keep the buttons low, but stop them from crashing into the trust text */
+            /* Keep the buttons low, directly under the copy stack */
             .cta-buttons{
                 flex-direction: column;
                 gap: 12px;
                 width: 100%;
-                margin-top: 72px;
+                margin-top: 0;
             }
             .btn{ width: 100%; text-align: center; padding: 14px 18px; }
             .phone-cta{
                 justify-content:center;
                 font-size: 16px;
-                margin-top: 18px;
+                margin-top: 16px;
                 text-align:center;
             }
             .hero-trustbar{
